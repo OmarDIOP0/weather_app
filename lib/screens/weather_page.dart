@@ -105,7 +105,7 @@ class _WeatherState extends State<WeatherPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Dakar', style: TextStyle(
+                     Text(_weather?.cityName ??'loading city', style: const TextStyle(
                         color: Colors.white, fontWeight: FontWeight.w300),
                     ),
                     const SizedBox(height: 8),
@@ -115,8 +115,8 @@ class _WeatherState extends State<WeatherPage> {
                         fontWeight: FontWeight.bold),
                     ),
                     Image.asset('assets/1.png'),
-                    const Center(
-                      child: Text('21°C', style: TextStyle(color: Colors.white,
+                     Center(
+                      child: Text('${_weather?.temperature.round()}°C', style:const TextStyle(color: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontSize: 50),
                       ),
@@ -142,7 +142,7 @@ class _WeatherState extends State<WeatherPage> {
                         Row(
                           children: [
                             Image.asset('11.png', scale: 8),
-                            const SizedBox(width: 5),
+                            //const SizedBox(width: 5),
                             const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -159,7 +159,7 @@ class _WeatherState extends State<WeatherPage> {
                         Row(
                           children: [
                             Image.asset('12.png', scale: 8),
-                            const SizedBox(width: 5),
+                           // const SizedBox(width: 5),
                             const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -185,7 +185,7 @@ class _WeatherState extends State<WeatherPage> {
                         Row(
                           children: [
                             Image.asset('13.png', scale: 8),
-                            const SizedBox(width: 5),
+                           // const SizedBox(width: 5),
                             const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -202,7 +202,7 @@ class _WeatherState extends State<WeatherPage> {
                         Row(
                           children: [
                             Image.asset('14.png', scale: 8),
-                            const SizedBox(width: 5),
+                            //const SizedBox(width: 5),
                             const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
