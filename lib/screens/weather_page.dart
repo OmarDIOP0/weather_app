@@ -2,17 +2,38 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../service/wea'
+import 'package:weather_application/service/weather_model.dart';
+import '../service/weather_service.dart';
 
-class Weather extends StatefulWidget {
-  const Weather({Key? key}) : super(key: key);
+class WeatherPage extends StatefulWidget {
+  const WeatherPage({Key? key}) : super(key: key);
 
   @override
-  State<Weather> createState() => _WeatherState();
+  State<WeatherPage> createState() => _WeatherState();
 }
 
-class _WeatherState extends State<Weather> {
-  final _weatherService= WeatherService(apiKey);
+class _WeatherState extends State<WeatherPage> {
+  final _weatherService= WeatherService('931bbd50296db1017f89a6c789f625a0');
+  Weather? _weather;
+  _fetchWeather() async{
+    String cityName =await _weatherService.getCurrentCity();
+    try{
+      final weather = await _weatherService.getWeather(cityName);
+      setState(() {
+        _weather = weather;
+      });
+    }
+    catch(e){
+      print(e);
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _fetchWeather();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
